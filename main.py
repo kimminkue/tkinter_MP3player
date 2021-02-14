@@ -5,7 +5,7 @@ import threading
 from tkinter import messagebox as msg
 
 win = tkinter.Tk()
-win.title('MP3 플레이어')
+win.title('MP3 PLAYER')
 win.geometry('645x365')
 win.resizable(0,0)
 
@@ -18,7 +18,7 @@ v_size = 0.30
 win.pauseFlag = False
 win.songgedFlag = False
 
-def music_list():   #w재생목록 버튼 함수
+def music_list():   #get folder with mp3 files
     global index
     dir = askdirectory()
     os.chdir(dir)
@@ -51,7 +51,7 @@ def music_list():   #w재생목록 버튼 함수
 
 
     # win_menu = Toplevel(win)
-    # win_menu.title("목록")
+    # win_menu.title("menu")
     # scrollbar = tkinter.Scrollbar(win_menu)
     # scrollbar.pack(side=RIGHT, fill=Y)
     # lb = Listbox(win_menu, width=50, yscrollcommand=scrollbar.set)
@@ -97,7 +97,7 @@ def music_autoplay():
                     if len(ls_music) > 0:
                         pygame.mixer.music.queue(ls_music.pop())
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 
 def play_song(event):
@@ -110,7 +110,7 @@ def play_song(event):
             pygame.mixer.music.play()
             lb_update()
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 def stop_song(event):
 
@@ -118,7 +118,7 @@ def stop_song(event):
         pygame.mixer.music.pause()
         win.pauseFlag = True
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 def lb_update():
     global index
@@ -135,7 +135,7 @@ def pre_song(event):
         pygame.mixer.music.play()
         lb_update()
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 def next_song(event):
 
@@ -148,7 +148,7 @@ def next_song(event):
         pygame.mixer.music.play()
         lb_update()
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 def v_up(event):
     if win.songgedFlag == True:
@@ -157,7 +157,7 @@ def v_up(event):
         v_size += 0.10
 
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 def v_down(event):
     if win.songgedFlag == True:
@@ -165,7 +165,7 @@ def v_down(event):
         pygame.mixer.music.set_volume(v_size)
         v_size -= 0.10
     else:
-        msg.showinfo(title='알림', message='노래를 먼저 선택해주세요.')
+        msg.showinfo(title='Alarm', message='select your song first.')
 
 def quit_music():
     pygame.mixer.music.stop()
